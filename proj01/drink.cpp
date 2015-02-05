@@ -3,7 +3,6 @@
 using std::cout; using std::cin; using std::endl; using std::ostream;
 #include <string>
 using std::string;
-
 //Drink constructor, take a string and int
 //intiailize name and size attributes
 Drink::Drink(string n, int s) {
@@ -23,12 +22,6 @@ BubbleTea::BubbleTea(string n, int s, bool temp, int bs) : Drink(n, s)  {
         hot = temp;
         size_bub = bs;
 }
-
-/*Drink::Drink(string & n,int & s) {
-        name = n;
-        size = s;
-}
-*/
 //OrangeJuice confirmOrder virtual method
 //prints out the order details
 void OrangeJuice::confirmOrder() {
@@ -75,12 +68,15 @@ BubbleTea & BubbleTea::operator=(const BubbleTea & rhs) {
     hot = rhs.hot;
     return *this;    
 }
-
+//OrangeJuice copy constructor copies OrangeJuice object
 OrangeJuice::OrangeJuice(const OrangeJuice & oj) : Drink(oj.name, oj.size) {
     pulp = oj.pulp;
 }
+//BubbleTea copy constructor copies bubbletea object
 BubbleTea::BubbleTea(const BubbleTea & bt) : Drink(bt.name, bt.size) {
     size_bub = bt.size_bub;
     hot = bt.hot;
 }
+/*empty implementation because c++ 11 requires all destructors (including pure
+virtual destructors) to have an implementation (even if it is blank)*/
 Drink::~Drink() {}
