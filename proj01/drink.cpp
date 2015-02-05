@@ -83,3 +83,9 @@ BubbleTea::BubbleTea(const BubbleTea & bt) : Drink(bt.name, bt.size) {
     size_bub = bt.size_bub;
     hot = bt.hot;
 }
+Drink::~Drink() {}
+
+
+//BubbleTea::~BubbleTea() {}
+//OrangeJuice::~OrangeJuice() {}
+

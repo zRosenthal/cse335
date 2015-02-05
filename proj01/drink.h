@@ -12,7 +12,7 @@ class Drink
         int size;
     public:
         Drink(string, int);
-        virtual ~Drink()=default;
+        virtual ~Drink()=0;
         virtual void confirmOrder()=0;
 
 };
