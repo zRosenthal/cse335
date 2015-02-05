@@ -1,5 +1,5 @@
 Zachary Rosenthal   A47191734
-aCraig Stoddard      A45086748
+Craig Stoddard      A45086748
 
 Craig created makefile
 Zach created header file
@@ -19,5 +19,3 @@ Then to clean up the .o files and executables run
 "make clean"
 
 Thank You
-
-hellotesetr!
