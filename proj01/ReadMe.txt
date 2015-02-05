@@ -1,5 +1,5 @@
 Zachary Rosenthal   A47191734
-Craig Stoddard      A45086748
+aCraig Stoddard      A45086748
 
 Craig created makefile
 Zach created header file
