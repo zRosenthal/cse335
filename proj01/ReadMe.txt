@@ -10,10 +10,13 @@ The program works as expected
 
 To run program:
 Open up terminal cd into our proj01 directory and run the following command
-"make -f proj01.makefile"
+"make"
 this will output a 'proj01' executable
 to run this executable simply type 
 "./proj01"
 (note: do not type the quatations when running commmands)
+Then to clean up the .o files and executables run 
+"make clean"
 
+Thank You!
 
