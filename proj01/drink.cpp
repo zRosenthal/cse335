@@ -9,6 +9,12 @@ Drink::Drink(string n, int s) {
     name = n;
     size = s;
 }
+//retrurns corresponding string for each size
+string Drink::getSize() {
+    if (size==1) {return "small";}
+    else if (size==2) {return "medium";}
+    else {return "large";}
+}
 //OrangeJuice constructor takes a string, integer and a bool
 //passes the string and integer to the Drink constructor
 //intializes pulp attribute

@@ -14,7 +14,7 @@ class Drink
         Drink(string, int);
         virtual ~Drink()=0;
         virtual void confirmOrder()=0;
-
+        int getSize();
 };
 
 class BubbleTea:public Drink
