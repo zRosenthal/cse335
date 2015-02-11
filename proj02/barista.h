@@ -34,12 +34,16 @@ class Barista {
 
 }
 class CoolBarista:public Barista {
+    Private:
+       bool sortOn(Drink*, Drink*);
     public:
         CoolBarista();
         deliverDrinks(AbstractOrderList *);
 }
 class NewbieBarista:public Barista {
-     public:
+   Private:
+        bool sortOn(Drink*, Drink*);  
+    public:
         NewbieBarista();
         deliverDrinks(AbstractOrderList *);
        
