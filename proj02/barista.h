@@ -11,31 +11,38 @@ class AbstractOrderList {
     protected:
         AbstractOrderList();
     public:
-        getVector();
+        virtual vector<Drink*>* getVector()=0;
 }
 class OrangeJuiceOrderList:public AbstractOrderList {
     private:
         vector<OrangeJuice*> OjVector;
     public:
         OrangeJuiceOrderList(vector<OrangeJuice*>);
+        vector<OrangeJuice*>* getVector();
 }
 class BubbleTeaList:public AbstractOrderList {
     private:
         vector<BubbleTea*> BtVector;
     public:
         BubbleTeaList(vector<BubbleTea*>);
+        vector<BubbleTea*>* getVector();
 }
 class Barista {
     public:
+        Barista();
         virtual deliverDrinks(AbstractOrderList *) = 0
+
 }
 class CoolBarista:public Barista {
     public:
+        CoolBarista();
         deliverDrinks(AbstractOrderList *);
 }
 class NewbieBarista:public Barista {
      public:
+        NewbieBarista();
         deliverDrinks(AbstractOrderList *);
+       
 }
 
 #endif
