@@ -9,6 +9,12 @@ Drink::Drink(string n, int s) {
     name = n;
     size = s;
 }
+//retrurns corresponding string for each size
+string Drink::getSize() {
+    if (size==1) {return "small";}
+    else if (size==2) {return "medium";}
+    else {return "large";}
+}
 //OrangeJuice constructor takes a string, integer and a bool
 //passes the string and integer to the Drink constructor
 //intializes pulp attribute
@@ -24,30 +30,32 @@ BubbleTea::BubbleTea(string n, int s, bool temp, int bs) : Drink(n, s)  {
 }
 //OrangeJuice confirmOrder virtual method
 //prints out the order details
-void OrangeJuice::confirmOrder() {
+string OrangeJuice::confirmOrder() {
     string s = "";
+    string str = "";
     if(size == 1) {s = "small";}
     else if(size == 2) {s = "medium";}
     else {s = "large";}
 
-    cout << name << " ordered a " << s << " drink of orange juice with " 
-         << ((pulp) ? "pulp": "no pulp") << endl; 
+    str =  name + " ordered a " + s + " drink of orange juice with " 
+         + ((pulp) ? "pulp\n": "no pulp\n");
+    return str;
 }
 
 //BubbleTea confirmOrder virtual method
 //prints out the order details
-void BubbleTea::confirmOrder() {
+string BubbleTea::confirmOrder() {
     string s = "";
     if(size == 1) {s = "small";}
     else if(size == 2) {s = "medium";}
     else {s = "large";}
-    
+    string str = ""; 
     string b = "";
     if(size_bub == 1) {b = "small";}
     else if(size_bub == 2) {b = "medium";}
     else {b = "large";}
-    cout << name << " ordered a " << s << " drink of bubble tea with " 
-         << b << " bubbles" << endl; 
+    str = name + " ordered a " + s + " drink of bubble tea with " 
+         + b + " bubbles\n"; 
 }
 //OrangeJuice: overloaded '='
 //takes an OrangeJuice object and sets all attributes 
