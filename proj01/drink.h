@@ -13,7 +13,7 @@ class Drink
     public:
         Drink(string, int);
         virtual ~Drink()=0;
-        virtual void confirmOrder()=0;
+        virtual string confirmOrder()=0;
         int getSize();
 };
 
@@ -25,7 +25,7 @@ class BubbleTea:public Drink
     public:
         BubbleTea(string, int, bool, int);
         ~BubbleTea()=default;
-        virtual void confirmOrder();
+        virtual string confirmOrder();
         BubbleTea & operator=(const BubbleTea &);
         BubbleTea(const BubbleTea &);     
 };
@@ -37,7 +37,7 @@ class OrangeJuice:public Drink
     public:
         OrangeJuice(string, int, bool);
         ~OrangeJuice()=default;
-        virtual void confirmOrder();
+        virtual string confirmOrder();
         OrangeJuice & operator=(const OrangeJuice &);
         OrangeJuice(const OrangeJuice &);
 };
