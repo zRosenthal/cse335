@@ -12,20 +12,21 @@ class AbstractOrderList {
     protected:
         AbstractOrderList();
     public:
+        virtual vector<Drink*> getVector()=0; 
 };
 class OrangeJuiceOrderList:public AbstractOrderList {
     private:
         vector<OrangeJuice*> OjVector;
     public:
         OrangeJuiceOrderList(vector<OrangeJuice*>);
-        vector<OrangeJuice*> getVector();
+        vector<Drink*> getVector();
 };
 class BubbleTeaList:public AbstractOrderList {
     private:
         vector<BubbleTea*> BtVector;
     public:
         BubbleTeaList(vector<BubbleTea*>);
-        vector<BubbleTea*> getVector();
+        vector<Drink*> getVector();
 };
 class Barista {
     protected:
@@ -37,14 +38,14 @@ class Barista {
 };
 class CoolBarista:public Barista {
     private:
-       bool sortOn(Drink*, Drink*);
+     //  bool sortOn(Drink*, Drink*);
     public:
         CoolBarista();
         void deliverDrinks(AbstractOrderList *);
 };
 class NewbieBarista:public Barista {
     private:
-        bool sortOn(Drink*, Drink*);  
+    //    bool sortOn(Drink*, Drink*);  
     public:
         NewbieBarista();
         void deliverDrinks(AbstractOrderList *);     

@@ -9,13 +9,13 @@ OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks){
     OjVector = OjDrinks;
 }
 
-vector<OrangeJuice*> OrangeJuiceOrderList::getVector() {
+vector<Drink*> OrangeJuiceOrderList::getVector() {
     return OjVector;
 }
 BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks){
     BtVector = BtDrinks;
 }
-vector<BubbleTea*> BubbleTeaList::getVector() {
+vector<Drink*> BubbleTeaList::getVector() {
     return BtVector;
 }
 Barista::Barista() {}
@@ -40,15 +40,15 @@ void Barista::outputOrder(vector<Drink*> drinkVector, bool baristaType) {
     }
 }
 CoolBarista::CoolBarista() {}
-bool CoolBarista::sortOn(Drink* drink1, Drink* drink2) {
+bool sortOnName(Drink* drink1, Drink* drink2) {
     return drink1->getName() < drink2->getName();
 }
-void CoolBarista::deliverDrinks(AbstractOrderList*) {
-    vector<Drink*> drinkVector = AbstractOrderList->getVector();
+void CoolBarista::deliverDrinks(AbstractOrderList* abstractList) {
+    vector<Drink*> drinkVector = abstractList->getVector();
     /*drink * drinkArray[drinkVector.size()];
     copy(drinkVector.begin(), drinkVector.end(), drinkArray);
     */
-    std::sort(drinkVector.begin(), drinkVector.end(), sortOn);
+    std::sort(drinkVector.begin(), drinkVector.end(), sortOnName);
     outputOrder(drinkVector,true);
     /*for(auto vectorIterator drinkVector.begin(), 
         vectorIterator != drinkVector.end(), vectorIterator++) {
@@ -56,14 +56,14 @@ void CoolBarista::deliverDrinks(AbstractOrderList*) {
     }*/
 }
 
-bool NewbieBarista::sortOn(Drink* drink1, Drink* drink2) {
+bool sortOnSize(Drink* drink1, Drink* drink2) {
     return drink1->getSize() < drink2->getSize();
 }
 
 NewbieBarista::NewbieBarista() {}
-void NewbieBarista::deliverDrinks(AbstractOrderList *) {
-    vector<Drink*> drinkVector = AbstractOrderList->getVector();
-    std::sort(drinkVector.begin(), drinkVector.end(), sortOn);
+void NewbieBarista::deliverDrinks(AbstractOrderList * abstractList) {
+    vector<Drink*> drinkVector = abstractList->getVector();
+    std::sort(drinkVector.begin(), drinkVector.end(), sortOnSize);
     outputOrder(drinkVector,false);
     /*    for(auto vectorIterator drinkVector.begin(), 
         vectorIterator != drinkVector.end(), vectorIterator++) {
