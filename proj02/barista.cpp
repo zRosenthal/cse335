@@ -2,7 +2,7 @@
 #include<string>
 #include<vector>
 #include<iostream>
-
+#include<algorithm>
 AbstractOrderList::AbstractOrderList(){}
 
 OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks){
