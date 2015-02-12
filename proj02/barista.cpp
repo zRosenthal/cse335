@@ -9,50 +9,47 @@ OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks){
     OjVector = OjDrinks;
 }
 
-vector<OrangeJuice*>* OrangeJuiceOrderList::getVector() {
-    return &OjVector;
+vector<OrangeJuice*> OrangeJuiceOrderList::getVector() {
+    return OjVector;
 }
-BubbleTeaOrderList::BubbleTeaOrderList(vector<BubbleTea*> BtDrinks){
+BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks){
     BtVector = BtDrinks;
 }
-vector<BubbleTea*>* BubbleTeaOrderList::getVector() {
-    return &BtVector;
+vector<BubbleTea*> BubbleTeaList::getVector() {
+    return BtVector;
 }
 Barista::Barista() {}
 //baristaType - cool = true , newbie = false
-Barista::outputOrder(vector<drink*>* drinkVector, bool baristaType) {
+void Barista::outputOrder(vector<Drink*> drinkVector, bool baristaType) {
     for(auto vectorIterator = drinkVector.begin(); 
                     vectorIterator != drinkVector.end(); vectorIterator++) {
         int count = 0;
-        string outputString = "";
-        endOfStr = (baristaType) ? "for" + vectorIterator->name:
-                "of size" + vectorIterator->size; 
-        while((baristaType)?(vectorIterator-1)->name==vectorIterator->name:
-                        (vectorIterator-1)->size == vectorIterator->size) {
-            outputStr += vectorIterator->confirmOrder;
+        string outputStr = "";
+        string endOfStr = (baristaType) ? "for" + (*vectorIterator)->getName():
+                "of size" + std::to_string((*vectorIterator)->getSize()); 
+        do {
+            outputStr += (*vectorIterator)->confirmOrder();
             count ++;
             vectorIterator++;
         }
-        do {
-            outputStr += vectorIterator->confirmOrder;
-            count ++;
-            vectorIterator++;
-        } 
+        while((baristaType)?
+            (*(vectorIterator-1))->getName()==(*vectorIterator)->getName():
+            (*(vectorIterator-1))->getSize() == (*vectorIterator)->getSize());
         cout << "I have " << count << " drinks " << endOfStr << endl;
         vectorIterator--;
     }
 }
 CoolBarista::CoolBarista() {}
-CoolBarista::sortOn(Drink* drink1, Drink* drink2) {
-    return drink1->name < drink2->name;
+bool CoolBarista::sortOn(Drink* drink1, Drink* drink2) {
+    return drink1->getName() < drink2->getName();
 }
-CoolBarista::deliverDrinks(AbstractOrderList*) {
-    vector<drink*> drinkVector = AbstractOrderList->getVector();
+void CoolBarista::deliverDrinks(AbstractOrderList*) {
+    vector<Drink*> drinkVector = AbstractOrderList->getVector();
     /*drink * drinkArray[drinkVector.size()];
     copy(drinkVector.begin(), drinkVector.end(), drinkArray);
     */
     std::sort(drinkVector.begin(), drinkVector.end(), sortOn);
-    outputOrder(drinkVector,"Cool");
+    outputOrder(drinkVector,true);
     /*for(auto vectorIterator drinkVector.begin(), 
         vectorIterator != drinkVector.end(), vectorIterator++) {
         vectorIterator->confirmOrder();
@@ -60,13 +57,14 @@ CoolBarista::deliverDrinks(AbstractOrderList*) {
 }
 
 bool NewbieBarista::sortOn(Drink* drink1, Drink* drink2) {
-    return drink1->size < drink2->size;
+    return drink1->getSize() < drink2->getSize();
 }
 
-NewbieBarista::NewbieBarista() {
-    vector<drink*>* drinkVector = AbstractOrderList->getVector();
+NewbieBarista::NewbieBarista() {}
+void NewbieBarista::deliverDrinks(AbstractOrderList *) {
+    vector<Drink*> drinkVector = AbstractOrderList->getVector();
     std::sort(drinkVector.begin(), drinkVector.end(), sortOn);
-    outputOrder(drinkVector,"Newbie");
+    outputOrder(drinkVector,false);
     /*    for(auto vectorIterator drinkVector.begin(), 
         vectorIterator != drinkVector.end(), vectorIterator++) {
         vectorIterator->confirmOrder();

@@ -8,13 +8,14 @@ using std::string;
 class Drink
 {
     protected:
-        std::string name;
+        string name;
         int size;
     public:
         Drink(string, int);
         virtual ~Drink()=0;
         virtual string confirmOrder()=0;
-        int getSize();
+        int getSize() {return size;}
+        string getName() {return name;} 
 };
 
 class BubbleTea:public Drink
