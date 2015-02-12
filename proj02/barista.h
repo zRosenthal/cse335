@@ -28,6 +28,8 @@ class BubbleTeaList:public AbstractOrderList {
         vector<BubbleTea*>* getVector();
 }
 class Barista {
+    Protected:
+        outputOrder(vector<drink*>*,string);
     public:
         Barista();
         virtual deliverDrinks(AbstractOrderList *) = 0
