@@ -11,7 +11,7 @@ OrangeJuice* OrangeJuiceOrderList::getDrink(int index) {
     return OjVector[index];
 }
 
-OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks){
+OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks) : AbstractOrderList() {
     OjVector = OjDrinks;
     size = OjVector.size();
 }
@@ -24,7 +24,7 @@ BubbleTea* BubbleTeaList::getDrink(int index) {
 
 int BubbleTeaList::getSize() {return size;}
 
-BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks){
+BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks) : AbstractOrderList(){
     BtVector = BtDrinks;
     size = BtVector.size();
 }
@@ -56,7 +56,7 @@ void Barista::outputOrder(vector<Drink*> drinkVector, bool baristaType) {
        cout << outputStr << endl;
     } }
 
-CoolBarista::CoolBarista() {}
+CoolBarista::CoolBarista() : Barista() {}
 
 bool sortOnName(Drink* drink1, Drink* drink2) {
     return drink1->getName() < drink2->getName();
@@ -75,7 +75,7 @@ bool sortOnSize(Drink* drink1, Drink* drink2) {
     return drink1->getSize() < drink2->getSize();
 }
 
-NewbieBarista::NewbieBarista() {}
+NewbieBarista::NewbieBarista() : Barista() {}
 
 void NewbieBarista::deliverDrinks(AbstractOrderList * abstractList) {
     vector<Drink*> drinkVector;
