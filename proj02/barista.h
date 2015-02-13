@@ -15,7 +15,7 @@ class AbstractOrderList {
         //virtual vector<Drink*> getVector()=0; 
         virtual Drink* getDrink(int)=0;         
         virtual int getSize()=0;
-        virtual ~AbstractOrderList()=0;
+        virtual ~AbstractOrderList() = default;
 };
 class OrangeJuiceOrderList:public AbstractOrderList {
     private:
@@ -23,7 +23,7 @@ class OrangeJuiceOrderList:public AbstractOrderList {
         vector<OrangeJuice*> OjVector;
     public:
         OrangeJuiceOrderList(vector<OrangeJuice*>);
-        ~OrangeJuiceOrderList(); 
+        ~OrangeJuiceOrderList() = default;
         OrangeJuice* getDrink(int);
         int getSize();
 };
@@ -33,7 +33,7 @@ class BubbleTeaList:public AbstractOrderList {
         vector<BubbleTea*> BtVector;
     public:
         BubbleTeaList(vector<BubbleTea*>);
-        ~BubbleTeaList();
+        ~BubbleTeaList() = default;
         BubbleTea* getDrink(int);
         int getSize();
 };
@@ -42,21 +42,17 @@ class Barista {
         void outputOrder(vector<Drink*>,bool);
     public:
         Barista();
-        virtual ~Barista()=0;
+        virtual ~Barista()=default;
         virtual void deliverDrinks(AbstractOrderList *) = 0;
 
 };
 class CoolBarista:public Barista {
-    private:
-     //  bool sortOn(Drink*, Drink*);
     public:
         CoolBarista();
         ~CoolBarista() = default;
         void deliverDrinks(AbstractOrderList *);
 };
 class NewbieBarista:public Barista {
-    private:
-    //    bool sortOn(Drink*, Drink*);  
     public:
         NewbieBarista();
         ~NewbieBarista() = default;

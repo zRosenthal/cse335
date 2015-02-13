@@ -44,7 +44,6 @@ int main(int argc, char** argv) {
     
     AwesomeArnold->deliverDrinks(&BtOrderList);
     ClumsyCharles->deliverDrinks(&BtOrderList);
-    cout << "segmation fault happens after thisj" << endl; 
     //cleans up memory 
     for (unsigned int i=0; i<OJOrders.size(); i++) {
         delete OJOrders[i];
@@ -52,10 +51,8 @@ int main(int argc, char** argv) {
     for (unsigned int i=0; i<BTOrders.size(); i++) {
         delete BTOrders[i];
     }
-    cout << "how about this" << endl; 
     delete AwesomeArnold;
     delete ClumsyCharles;
-    cout << "then it has to be here" << endl;
     return 0;
 }
 

@@ -6,7 +6,7 @@
 #include<map>
 using namespace std;
 AbstractOrderList::AbstractOrderList(){}
-AbstractOrderList::~AbstractOrderList() {}
+
 OrangeJuice* OrangeJuiceOrderList::getDrink(int index) {
     return OjVector[index];
 }
@@ -14,12 +14,6 @@ OrangeJuice* OrangeJuiceOrderList::getDrink(int index) {
 OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks){
     OjVector = OjDrinks;
     size = OjVector.size();
-}
-
-OrangeJuiceOrderList::~OrangeJuiceOrderList() {
-    for(int i = 0; i < size; i++) {
-        delete OjVector[i];
-    }
 }
 
 int OrangeJuiceOrderList::getSize() {return size;}
@@ -35,14 +29,7 @@ BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks){
     size = BtVector.size();
 }
 
-BubbleTeaList::~BubbleTeaList() {
-    for(int i = 0; i < size; i++) {
-        delete BtVector[i];
-    }
-}
-
 Barista::Barista() {}
-Barista::~Barista() {}
 
 //baristaType - cool = true , newbie = false
 void Barista::outputOrder(vector<Drink*> drinkVector, bool baristaType) {
@@ -74,18 +61,13 @@ CoolBarista::CoolBarista() {}
 bool sortOnName(Drink* drink1, Drink* drink2) {
     return drink1->getName() < drink2->getName();
 }
+
 void CoolBarista::deliverDrinks(AbstractOrderList* abstractList) {
-    cout << "in cool" << endl;
     vector<Drink*> drinkVector;
     for(int i = 0; i < abstractList->getSize(); i++) {
         drinkVector.push_back(abstractList->getDrink(i));
     }
     std::sort(drinkVector.begin(), drinkVector.end(), sortOnName);
-    cout << "after drink vector is created" << endl;
-    for(int i = 0; i < drinkVector.size(); i++) {
-        cout << drinkVector[i]->confirmOrder() << ',';
-    }
-    cout << endl; 
     outputOrder(drinkVector,true);
 }
 
@@ -94,6 +76,7 @@ bool sortOnSize(Drink* drink1, Drink* drink2) {
 }
 
 NewbieBarista::NewbieBarista() {}
+
 void NewbieBarista::deliverDrinks(AbstractOrderList * abstractList) {
     vector<Drink*> drinkVector;
     for(int i = 0; i < abstractList->getSize(); i++) {
