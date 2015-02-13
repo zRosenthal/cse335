@@ -56,6 +56,7 @@ string BubbleTea::confirmOrder() {
     else {b = "large";}
     str = name + " ordered a " + s + " drink of bubble tea with " 
          + b + " bubbles\n"; 
+    return str;
 }
 //OrangeJuice: overloaded '='
 //takes an OrangeJuice object and sets all attributes 

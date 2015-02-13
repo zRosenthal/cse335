@@ -1,5 +1,5 @@
-proj01: main.o drink.o barista.o
-	g++ -std=c++11 main.o drink.o barista.o -o proj01
+proj02: main.o drink.o barista.o
+	g++ -std=c++11 main.o drink.o barista.o -o proj02
 
 main.o: main.cpp drink.h barista.h 
 	g++ -std=c++11 -Wall -c main.cpp
