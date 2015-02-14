@@ -15,7 +15,7 @@ class AbstractOrderList {
         //virtual vector<Drink*> getVector()=0; 
         virtual Drink* getDrink(int)=0;         
         virtual int getSize()=0;
-        virtual ~AbstractOrderList() = default;
+        virtual ~AbstractOrderList() {};
 };
 class OrangeJuiceOrderList:public AbstractOrderList {
     private:
@@ -42,7 +42,7 @@ class Barista {
         void outputOrder(vector<Drink*>,bool);
     public:
         Barista();
-        virtual ~Barista()=default;
+        virtual ~Barista() {};
         virtual void deliverDrinks(AbstractOrderList *) = 0;
 
 };
