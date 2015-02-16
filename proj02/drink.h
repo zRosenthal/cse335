@@ -6,6 +6,7 @@ using std::cin; using std::cout; using std::endl;
 using std::string;
 #include<vector>
 using std::vector;
+//Drink header
 class Drink
 {
     protected:
@@ -44,13 +45,12 @@ class OrangeJuice:public Drink
         OrangeJuice(const OrangeJuice &);
 };
 
-
+//OrderList header
 class AbstractOrderList {
     private:
     protected:
         AbstractOrderList();
     public:
-        //virtual vector<Drink*> getVector()=0; 
         virtual Drink* getDrink(int)=0;         
         virtual int getSize()=0;
         virtual ~AbstractOrderList() {};

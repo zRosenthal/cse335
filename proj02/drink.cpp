@@ -90,26 +90,46 @@ BubbleTea::BubbleTea(const BubbleTea & bt) : Drink(bt.name, bt.size) {
 virtual destructors) to have an implementation (even if it is blank)*/
 Drink::~Drink() {}
 
-
+//AbstractOrderList constructor
 AbstractOrderList::AbstractOrderList(){}
 
+//getDrink function
+//returns the ptr at index 'index' of OjVector
+//Params: int - the index of ptr you want to be returned
 OrangeJuice* OrangeJuiceOrderList::getDrink(int index) {
     return OjVector[index];
 }
 
+//OrangeJuiceOrderList constructor
+//calls AbstractOrderList constructor
+//intializes OjVector and size
+//Params: vector of OrangeJuice pts
 OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks) : AbstractOrderList() {
     OjVector = OjDrinks;
     size = OjVector.size();
 }
 
+//getSize getter functions
+//returns the size of the Orderlist
+//Params: none
 int OrangeJuiceOrderList::getSize() {return size;}
 
+//getDrink function
+//returns the ptr at index 'index' BtVector
+//Params: int - the index of ptr you want to be returned
 BubbleTea* BubbleTeaList::getDrink(int index) {
     return BtVector[index];
 }
 
+//getSize getter function
+//returns the size of the OrderList
+//Params: none
 int BubbleTeaList::getSize() {return size;}
 
+//BubbleTea constructor
+//calls AbstractOrderList constructor
+//intiailizes BtVector and size
+//Params: vector of BubbleTea ptrs
 BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks) : AbstractOrderList(){
     BtVector = BtDrinks;
     size = BtVector.size();

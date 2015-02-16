@@ -8,9 +8,10 @@ using std::string;
 using std::vector;
 #include "drink.h"
 using namespace std;
+//Barista class header file
 class Barista {
     protected:
-        void outputOrder(vector<Drink*>,bool);
+        void outputOrder(const vector<Drink*> &,bool);
     public:
         Barista();
         virtual ~Barista() {};
