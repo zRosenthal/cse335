@@ -7,36 +7,7 @@ using std::string;
 #include<vector>
 using std::vector;
 #include "drink.h"
-class AbstractOrderList {
-    private:
-    protected:
-        AbstractOrderList();
-    public:
-        //virtual vector<Drink*> getVector()=0; 
-        virtual Drink* getDrink(int)=0;         
-        virtual int getSize()=0;
-        virtual ~AbstractOrderList() {};
-};
-class OrangeJuiceOrderList:public AbstractOrderList {
-    private:
-        int size;
-        vector<OrangeJuice*> OjVector;
-    public:
-        OrangeJuiceOrderList(vector<OrangeJuice*>);
-        ~OrangeJuiceOrderList() = default;
-        OrangeJuice* getDrink(int);
-        int getSize();
-};
-class BubbleTeaList:public AbstractOrderList {
-    private:
-        int size;
-        vector<BubbleTea*> BtVector;
-    public:
-        BubbleTeaList(vector<BubbleTea*>);
-        ~BubbleTeaList() = default;
-        BubbleTea* getDrink(int);
-        int getSize();
-};
+using namespace std;
 class Barista {
     protected:
         void outputOrder(vector<Drink*>,bool);

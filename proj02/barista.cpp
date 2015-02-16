@@ -5,29 +5,6 @@
 #include<algorithm>
 #include<map>
 using namespace std;
-AbstractOrderList::AbstractOrderList(){}
-
-OrangeJuice* OrangeJuiceOrderList::getDrink(int index) {
-    return OjVector[index];
-}
-
-OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks) : AbstractOrderList() {
-    OjVector = OjDrinks;
-    size = OjVector.size();
-}
-
-int OrangeJuiceOrderList::getSize() {return size;}
-
-BubbleTea* BubbleTeaList::getDrink(int index) {
-    return BtVector[index];
-}
-
-int BubbleTeaList::getSize() {return size;}
-
-BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks) : AbstractOrderList(){
-    BtVector = BtDrinks;
-    size = BtVector.size();
-}
 
 Barista::Barista() {}
 

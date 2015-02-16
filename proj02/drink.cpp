@@ -89,3 +89,29 @@ BubbleTea::BubbleTea(const BubbleTea & bt) : Drink(bt.name, bt.size) {
 /*empty implementation because c++ 11 requires all destructors (including pure
 virtual destructors) to have an implementation (even if it is blank)*/
 Drink::~Drink() {}
+
+
+AbstractOrderList::AbstractOrderList(){}
+
+OrangeJuice* OrangeJuiceOrderList::getDrink(int index) {
+    return OjVector[index];
+}
+
+OrangeJuiceOrderList::OrangeJuiceOrderList(vector<OrangeJuice*> OjDrinks) : AbstractOrderList() {
+    OjVector = OjDrinks;
+    size = OjVector.size();
+}
+
+int OrangeJuiceOrderList::getSize() {return size;}
+
+BubbleTea* BubbleTeaList::getDrink(int index) {
+    return BtVector[index];
+}
+
+int BubbleTeaList::getSize() {return size;}
+
+BubbleTeaList::BubbleTeaList(vector<BubbleTea*> BtDrinks) : AbstractOrderList(){
+    BtVector = BtDrinks;
+    size = BtVector.size();
+}
+
