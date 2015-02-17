@@ -70,6 +70,7 @@ void CoolBarista::deliverDrinks(AbstractOrderList* abstractList) {
         drinkVector.push_back(abstractList->getDrink(i));
     }
     std::sort(drinkVector.begin(), drinkVector.end(), sortOnName);
+    cout << "Cool Barista: Order's up!" << endl;
     outputOrder(drinkVector,true);
 }
 //helper function called when sorting drink objects to determine ordering
@@ -93,5 +94,6 @@ void NewbieBarista::deliverDrinks(AbstractOrderList * abstractList) {
         drinkVector.push_back(abstractList->getDrink(i));
     }
     std::sort(drinkVector.begin(), drinkVector.end(), sortOnSize);
+    cout << "Newbie Barista: Order's up!" << endl; 
     outputOrder(drinkVector,false);
 }
