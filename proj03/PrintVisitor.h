@@ -1,7 +1,7 @@
 #ifndef PVISIT_H_
 #define PVISIT_H_
-#include "Employee.h"
-#include "Group.h"
+class Employee;
+class Group;
 class Visitor {
     public:
         virtual void visitEmployee(Employee*)=0;

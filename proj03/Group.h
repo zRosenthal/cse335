@@ -1,10 +1,12 @@
 #ifndef GROUP
 #define GROUP
-#include "Group.h"
-#include "PrintVisitor.h"
+
+class Visitor;
 #include<string>
 #include<vector>
 using namespace std;
+#include "Group.h"
+//#include "PrintVisitor.h"
 class Node {
     public:
         Node();

@@ -1,12 +1,14 @@
 #include<string>
-ObjectStructure::addNode(node* object ) {
-    nodeVector.push(object);
+#include "Group.h"
+#include "PrintVisitor.h"
+void ObjectStructure::addNode(Node* object ) {
+    nodeVector.push_back(object);
 }
 
 Node::Node () { 
     
 }
-Node::~Node*() {
+Node::~Node() {
                 
 }
 Group::Group(string n) {
@@ -14,11 +16,11 @@ Group::Group(string n) {
     dataPtr = new ObjectStructure();
 }
 Group::~Group() {
-    delete dataPtr
+    delete dataPtr;
 }
-Group::Accept(Visitor* visitor) {
-    visitor->visitGroup();
+void Group::Accept(Visitor* visitor) {
+    visitor->visitGroup(this);
 }
-Group::AddChild(Node* node) {
+void Group::AddChild(Node* node) {
     dataPtr->addNode(node);
 }
