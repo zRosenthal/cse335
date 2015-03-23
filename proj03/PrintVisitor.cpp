@@ -2,6 +2,7 @@
 //includes
 #include "PrintVisitor.h"
 #include "Group.h"
+#include "Employee.h"
 #include<iostream>
 //Visitor Implementation
 Visitor::Visitor() {}
