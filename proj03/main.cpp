@@ -37,10 +37,10 @@ int main()
 {
     
 	Node* AppleCo = BuildAppleCo();
-	/*PrintVisitor* pVisitor = new PrintVisitor();
+	PrintVisitor* pVisitor = new PrintVisitor();
 	AppleCo->Accept(pVisitor);
 	cout<<"______________________"<<endl << endl;
-        SearchVisitor* sVisitor = new SearchVisitor();
+    /*    SearchVisitor* sVisitor = new SearchVisitor();
         
         string craigQuery="Craig Federighi";
         sVisitor->setQuery(craigQuery);

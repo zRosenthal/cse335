@@ -15,5 +15,8 @@ class PrintVisitor:public Visitor {
         ~PrintVisitor();
         void visitEmployee(Employee*);
         void visitGroup(Group*);
+	private:
+		int indentLevel=0;
 };
+
 #endif

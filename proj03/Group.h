@@ -12,12 +12,15 @@ class Node {
         Node();
         ~Node();
         virtual void Accept(Visitor*)=0;
+		virtual bool printNode(int indentLevel=0)=0;
 };
 class ObjectStructure {
     public:
         ObjectStructure(){};
         ~ObjectStructure(){};
-        void addNode(Node*);
+		Node* getNodePtr(int);
+ 		void addNode(Node*);
+		int getSize();
     private:
         vector<Node*> nodeVector;
 };
@@ -25,12 +28,14 @@ class ObjectStructure {
 
 class Group:public Node {
     private:
-        string name;
+        string groupName;
         ObjectStructure * dataPtr;
     public:
         Group(string);
         ~Group();
         void Accept(Visitor*);
         void AddChild(Node*);
+		bool printNode(int indentLevel=0);
+		ObjectStructure* getDataPtr();
 }; 
 #endif

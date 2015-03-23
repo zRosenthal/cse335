@@ -9,12 +9,13 @@ using namespace std;
 //Employee class header
 class Employee:public Node {
     private:
-        string first;
-        string last;
-        string title;
+        string firstName;
+        string lastName;
+        string jobTitle;
     public:
         Employee(string,string,string);
         ~Employee();
         void Accept(Visitor* visitor);
+		bool printNode(int indentLevel=0);
 };
 #endif
