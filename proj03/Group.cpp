@@ -36,7 +36,7 @@ bool Group::printNode(int indentLevel) {
 	for(int i = 0; i < indentLevel; i++) {
 		cout << "  ";
 	}
-	cout << "+ " << groupName << endl;
+	cout << "+ Team " << groupName << endl;
 	return true;
 }
 ObjectStructure* Group::getDataPtr() {
