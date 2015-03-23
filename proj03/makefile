@@ -1,5 +1,5 @@
 proj03: main.o employee.o group.o pvisitor.o svisitor.o cvisitor.o
-	g++ -std=c+11 main.o employee.o group.o pvisitor.o svisitor.o cvisitor.o -o proj03
+	g++ -std=c++11 main.o employee.o group.o pvisitor.o svisitor.o cvisitor.o -o proj03
 
 main.o: main.cpp Employee.h Group.h PrintVisitor.h SearchVisitor.h CountVisitor.h
 	g++ -std=c++11 -Wall -c main.cpp
