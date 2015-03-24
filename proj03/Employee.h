@@ -17,5 +17,8 @@ class Employee:public Node {
         ~Employee();
         void Accept(Visitor* visitor);
 		bool printNode(int indentLevel=0);
+		string getFirstName();
+		string getLastName();
+		string getJobTitle();
 };
 #endif

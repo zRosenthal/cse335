@@ -12,19 +12,18 @@ Visitor::~Visitor()=default;
 PrintVisitor::PrintVisitor() {}
 PrintVisitor::~PrintVisitor()=default;
 void PrintVisitor::visitGroup(Group* groupPtr) {
-	if(!indentLevel) {
-		groupPtr->printNode();
-		indentLevel++;
+	groupPtr->printNode();
+	indentLevel++;
+	vector<Node*> nodeVector = groupPtr->getDataPtr()->getNodeVector();
+	for(auto v_it = nodeVector.begin(); v_it != nodeVector.end(); v_it++) {
+		Node* nodePtr = (*v_it);
+	for(int x = 0; x < indentLevel; x++) {
+		cout << "  ";
+	}		
+	nodePtr->Accept(this);
 	}
-	int structurSize = groupPtr->getDataPtr()->getSize();
-	for(int i = 0; i < structurSize; i++) {
-		Node* nodePtr = groupPtr->getDataPtr()->getNodePtr(i);
-		bool trueIfGroup = nodePtr->printNode(indentLevel);
-		if(trueIfGroup) {
-			indentLevel++;
-			nodePtr->Accept(this);
-			indentLevel--;
-		}
-	}
+	indentLevel--;
 }
-void PrintVisitor::visitEmployee(Employee* empPtr) {}
+void PrintVisitor::visitEmployee(Employee* empPtr) {
+	empPtr->printNode();
+}

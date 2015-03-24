@@ -19,3 +19,12 @@ bool Employee::printNode(int indentLevel) {
 	cout << jobTitle << ": " << firstName << " "<< lastName << endl;
 	return false;
 }
+string Employee::getFirstName() {
+	return firstName;
+}
+string Employee::getLastName() {
+	return lastName;
+}
+string Employee::getJobTitle() {
+	return jobTitle;
+}

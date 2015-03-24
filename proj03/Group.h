@@ -18,7 +18,7 @@ class ObjectStructure {
     public:
         ObjectStructure(){};
         ~ObjectStructure(){};
-		Node* getNodePtr(int);
+		vector<Node*> getNodeVector();
  		void addNode(Node*);
 		int getSize();
     private:
@@ -37,5 +37,6 @@ class Group:public Node {
         void AddChild(Node*);
 		bool printNode(int indentLevel=0);
 		ObjectStructure* getDataPtr();
+		string getGroupName();
 }; 
 #endif

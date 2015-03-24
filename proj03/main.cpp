@@ -40,7 +40,7 @@ int main()
 	PrintVisitor* pVisitor = new PrintVisitor();
 	AppleCo->Accept(pVisitor);
 	cout<<"______________________"<<endl << endl;
-    /*    SearchVisitor* sVisitor = new SearchVisitor();
+    SearchVisitor* sVisitor = new SearchVisitor();
         
         string craigQuery="Craig Federighi";
         sVisitor->setQuery(craigQuery);
@@ -73,7 +73,7 @@ int main()
         sVisitor->Reset();
 
 	cout<<"______________________"<<endl << endl;
-        CountVisitor* cVisitor = new CountVisitor();
+/*        CountVisitor* cVisitor = new CountVisitor();
 	AppleCo->Accept(cVisitor);
         cVisitor->PrintResults();
         cVisitor->Reset();

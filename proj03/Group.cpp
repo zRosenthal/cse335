@@ -6,8 +6,8 @@ using namespace std;
 void ObjectStructure::addNode(Node* object ) {
 	nodeVector.push_back(object);
 }
-Node* ObjectStructure::getNodePtr(int index) {
-	return nodeVector[index];
+vector<Node*> ObjectStructure::getNodeVector() {
+	return nodeVector;
 }
 int ObjectStructure::getSize() {
 	return nodeVector.size();
@@ -38,6 +38,9 @@ bool Group::printNode(int indentLevel) {
 	}
 	cout << "+ Team " << groupName << endl;
 	return true;
+}
+string Group::getGroupName() {
+	return groupName;
 }
 ObjectStructure* Group::getDataPtr() {
 	return dataPtr;
