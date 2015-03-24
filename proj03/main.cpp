@@ -73,7 +73,7 @@ int main()
         sVisitor->Reset();
 
 	cout<<"______________________"<<endl << endl;
-/*        CountVisitor* cVisitor = new CountVisitor();
+    CountVisitor* cVisitor = new CountVisitor();
 	AppleCo->Accept(cVisitor);
         cVisitor->PrintResults();
         cVisitor->Reset();
@@ -82,6 +82,5 @@ int main()
         delete cVisitor;
         delete sVisitor;
         delete pVisitor;
-      */  
 	return 0;
 }

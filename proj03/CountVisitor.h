@@ -7,9 +7,12 @@ class CountVisitor:public Visitor {
         public:
             void visitEmployee(Employee*);
             void visitGroup(Group*);
-			void reset();
-			void printResults();
+			void Reset();
+			void PrintResults();
 			CountVisitor();
             ~CountVisitor();
+		private:
+			int empCount=0;
+			int groupCount=0;
 };
 #endif
