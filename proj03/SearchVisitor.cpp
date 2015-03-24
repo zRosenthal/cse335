@@ -8,7 +8,6 @@ using namespace std;
 SearchVisitor::SearchVisitor() {
 	query = "";
 }
-SearchVisitor::~SearchVisitor()=default;
 void SearchVisitor::Reset() {
 	query = "";
 	searchVector.clear();

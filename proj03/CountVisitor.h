@@ -7,10 +7,12 @@ class CountVisitor:public Visitor {
         public:
             void visitEmployee(Employee*);
             void visitGroup(Group*);
+			CountVisitor& operator=(const CountVisitor&)=default;
+			CountVisitor(const CountVisitor&)=default;
 			void Reset();
 			void PrintResults();
 			CountVisitor();
-            ~CountVisitor();
+            ~CountVisitor()=default;
 		private:
 			int empCount=0;
 			int groupCount=0;

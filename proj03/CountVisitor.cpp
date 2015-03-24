@@ -4,7 +4,6 @@
 using namespace std;
 #include "CountVisitor.h"
 CountVisitor::CountVisitor()=default;
-CountVisitor::~CountVisitor()=default;
 void CountVisitor::visitGroup(Group* groupPtr) {
 	groupCount++;
 	vector<Node*> nodeVector = groupPtr->getDataPtr()->getNodeVector();

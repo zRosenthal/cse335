@@ -7,10 +7,8 @@
 using namespace std;
 //Visitor Implementation
 Visitor::Visitor()=default;
-Visitor::~Visitor()=default;
 //PrintVisitor Implementation
 PrintVisitor::PrintVisitor()=default;
-PrintVisitor::~PrintVisitor()=default;
 void PrintVisitor::visitGroup(Group* groupPtr) {
 	groupPtr->printNode();
 	indentLevel++;

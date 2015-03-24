@@ -11,7 +11,9 @@ class SearchVisitor:public Visitor {
 			void Reset();
 			void setQuery(string);
             SearchVisitor();
-            ~SearchVisitor();
+			SearchVisitor& operator=(const SearchVisitor&)=default;
+			SearchVisitor(const SearchVisitor&)=default;
+            ~SearchVisitor()=default;
 			void visitEmployee(Employee*);
 			void visitGroup(Group*);
 			void PrintResults();

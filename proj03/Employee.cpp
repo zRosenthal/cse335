@@ -8,7 +8,6 @@ Employee::Employee(string f,string l,string t) {
     lastName = l;
     jobTitle = t;
 }
-Employee::~Employee(){}
 void Employee::Accept(Visitor* visitor) {
     visitor->visitEmployee(this);
 }

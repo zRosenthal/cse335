@@ -14,7 +14,9 @@ class Employee:public Node {
         string jobTitle;
     public:
         Employee(string,string,string);
-        ~Employee();
+		~Employee()=default;
+		Employee& operator=(const Employee&)=default;
+		Employee(const Employee&)=default;
         void Accept(Visitor* visitor);
 		bool printNode(int indentLevel=0);
 		string getFirstName();

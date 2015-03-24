@@ -13,7 +13,7 @@ Group.o: Group.h Group.cpp PrintVisitor.h
 PrintVisitor.o: PrintVisitor.h PrintVisitor.cpp Group.h Employee.h 
 	g++ -std=c++11 -Wall -c PrintVisitor.cpp
 
-SearchVisitor.o: SearchVisitor.h SearchVisitor.cpp
+SearchVisitor.o: SearchVisitor.h SearchVisitor.cpp PrintVisitor.h
 	g++ -std=c++11 -Wall -c SearchVisitor.cpp
 	
 CountVisitor.o: CountVisitor.h CountVisitor.cpp

@@ -13,12 +13,6 @@ int ObjectStructure::getSize() {
 	return nodeVector.size();
 }
 
-Node::Node () { 
-    
-}
-Node::~Node() {
-                
-}
 Group::Group(string n) {
     groupName = n;
     dataPtr = new ObjectStructure();

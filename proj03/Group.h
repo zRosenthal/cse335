@@ -9,15 +9,19 @@ using namespace std;
 //#include "PrintVisitor.h"
 class Node {
     public:
-        Node();
-        ~Node();
+        Node() {};
+        virtual ~Node() {};
+		Node& operator=(const Node &)=default;
+		Node(const Node &)=default;
         virtual void Accept(Visitor*)=0;
 		virtual bool printNode(int indentLevel=0)=0;
 };
 class ObjectStructure {
     public:
         ObjectStructure(){};
-        ~ObjectStructure(){};
+        ~ObjectStructure()=default;
+		ObjectStructure& operator=(const ObjectStructure&)=default;
+		ObjectStructure(const ObjectStructure&)=default;
 		vector<Node*> getNodeVector();
  		void addNode(Node*);
 		int getSize();
@@ -33,6 +37,8 @@ class Group:public Node {
     public:
         Group(string);
         ~Group();
+		Group& operator=(const Group&)=default;
+		Group(const Group&)=default;
         void Accept(Visitor*);
         void AddChild(Node*);
 		bool printNode(int indentLevel=0);
