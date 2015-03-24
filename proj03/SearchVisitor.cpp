@@ -40,8 +40,15 @@ void SearchVisitor::visitEmployee(Employee* empPtr) {
 void SearchVisitor::PrintResults() {
 	cout << "Found " << searchVector.size() 
 		 << " results for the query " << query << endl;
+	bool indentOn = false;
+	bool first = true;
 	for(auto v_it = searchVector.begin(); v_it != searchVector.end(); v_it++) {
-		(*v_it)->printNode();
+		if(indentOn) {cout << "  ";}
+		bool trueIfGroup = (*v_it)->printNode();
+		if(trueIfGroup && first ) {
+			indentOn = true;
+		}
+		first = false;
 	}
 	cout << endl;
 }

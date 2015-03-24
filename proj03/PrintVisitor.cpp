@@ -6,10 +6,10 @@
 #include<iostream>
 using namespace std;
 //Visitor Implementation
-Visitor::Visitor() {}
+Visitor::Visitor()=default;
 Visitor::~Visitor()=default;
 //PrintVisitor Implementation
-PrintVisitor::PrintVisitor() {}
+PrintVisitor::PrintVisitor()=default;
 PrintVisitor::~PrintVisitor()=default;
 void PrintVisitor::visitGroup(Group* groupPtr) {
 	groupPtr->printNode();
