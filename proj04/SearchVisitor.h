@@ -1,6 +1,7 @@
 #ifndef SVISIT
 #define SVISIT
 #include<string>
+#include<vector>
 #include "PrintVisitor.h"
 class Node;
 class Employee;
