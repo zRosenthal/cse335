@@ -1,7 +1,6 @@
 #ifndef SVISIT
 #define SVISIT
 #include<string>
-#include<vector>
 #include "PrintVisitor.h"
 class Node;
 class Employee;
@@ -18,8 +17,6 @@ class SearchVisitor:public Visitor {
 			void visitEmployee(Employee*);
 			void visitGroup(Group*);
 			void PrintResults();
-			Node* getFirstElement();
-			int getVecSize();
 		private:
 			string query;
 			vector<Node*> searchVector; 

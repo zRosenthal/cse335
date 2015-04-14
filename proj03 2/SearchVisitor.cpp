@@ -17,13 +17,8 @@ void SearchVisitor::setQuery(string q) {
 }
 void SearchVisitor::visitGroup(Group* groupPtr) {
 	vector<Node*> nodeVector = groupPtr->getDataPtr()->getNodeVector(); 
-	cout << endl << endl;
-	cout << "query: |" << query << "|" << endl;
-	string n = groupPtr->getGroupName();
-	cout << "group name : |" << n << "|"<< endl;
-	cout << "comparing n and query" << (n==query) << endl;
-	if(n == query) {
-		cout << "pushing: " << n << "to svector" << endl;
+		
+	if(groupPtr->getGroupName() == query) {
 		searchVector.push_back(groupPtr);
 		for(auto v_it = nodeVector.begin(); v_it < nodeVector.end(); v_it++) {
 			searchVector.push_back(*v_it);
@@ -55,11 +50,4 @@ void SearchVisitor::PrintResults() {
 		first = false;
 	}
 	cout << endl;
-}
-
-Node* SearchVisitor::getFirstElement() {
-	return searchVector[0]; 
-}
-int SearchVisitor::getVecSize() {
-	return searchVector.size();
 }

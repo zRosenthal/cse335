@@ -12,9 +12,8 @@ class Employee:public Node {
         string firstName;
         string lastName;
         string jobTitle;
-		Node* parent;
-	public:
-        Employee(string,string,string,Node*);
+    public:
+        Employee(string,string,string);
 		~Employee()=default;
 		Employee& operator=(const Employee&)=default;
 		Employee(const Employee&)=default;
@@ -23,6 +22,5 @@ class Employee:public Node {
 		string getFirstName();
 		string getLastName();
 		string getJobTitle();
-		Node* getParent();
 };
 #endif

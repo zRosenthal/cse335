@@ -3,14 +3,11 @@
 using std::string; 
 #include "PrintVisitor.h"
 #include "Employee.h"
-class Group;
-Employee::Employee(string f,string l,string t, Node* p) {
+Employee::Employee(string f,string l,string t) {
     firstName = f;
     lastName = l;
     jobTitle = t;
-	parent = p;
 }
-Node* Employee::getParent() { return parent;}
 void Employee::Accept(Visitor* visitor) {
     visitor->visitEmployee(this);
 }

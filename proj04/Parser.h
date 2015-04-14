@@ -2,15 +2,15 @@
 #define PARSER_H_
 #include<fstream>
 #include<string>
-//class BUIilder;
+class CompanyBuilder;
 using namespace std;
 class Parser {
 	public:
 		Parser(string);
 		~Parser()=default;
-		bool Parse();
+		bool Parse(CompanyBuilder*);
 	private:
-		//Builder* bobTheBuilder;
+		CompanyBuilder* bobTheBuilder;
 		string fileName;
 };
 #endif

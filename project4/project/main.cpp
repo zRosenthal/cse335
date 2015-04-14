@@ -4,7 +4,7 @@
 #include "SearchVisitor.h"
 #include "CountVisitor.h"
 #include <string>
-#include "CompanyBuilder.h"
+//#include "CompanyBuilder.h"
 #include "Parser.h"
 
 #include <iostream>
@@ -16,10 +16,10 @@ int main(int argc, char** argv)
         cout <<"need argument for filename" << endl;
         return 0;
     }
-    Parser parser(argv[1]);
-	CompanyBuilder cb;
-	bool success = parser.Parse(&cb);
-    Node* AppleCo= cb.getResult();
-    cout << success << endl;   
+        Parser parser(argv[1]);
+//	CompanyBuilder cb;
+	bool success = parser.Parse();
+     //   Node* AppleCo= cb.getResult();
+       
 	return 0;
 }

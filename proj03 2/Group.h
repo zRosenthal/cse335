@@ -1,11 +1,12 @@
 #ifndef GROUP
 #define GROUP
+
 class Visitor;
 #include<string>
 #include<vector>
 using namespace std;
+#include "Group.h"
 //#include "PrintVisitor.h"
-class ObjectStructure;
 class Node {
     public:
         Node() {};
@@ -14,10 +15,6 @@ class Node {
 		Node(const Node &)=default;
         virtual void Accept(Visitor*)=0;
 		virtual bool printNode(int indentLevel=0)=0;
-		virtual Node* getParent()=0;
-		virtual void AddChild(Node*) {}
-		virtual ObjectStructure* getDataPtr() {}
-		virtual string getGroupName() {}
 };
 class ObjectStructure {
     public:
@@ -37,10 +34,8 @@ class Group:public Node {
     private:
         string groupName;
         ObjectStructure * dataPtr;
-		Node* parent;
-	public:
-        Group(string,Node*);
-		Group(string);
+    public:
+        Group(string);
         ~Group();
 		Group& operator=(const Group&)=default;
 		Group(const Group&)=default;
@@ -49,6 +44,5 @@ class Group:public Node {
 		bool printNode(int indentLevel=0);
 		ObjectStructure* getDataPtr();
 		string getGroupName();
-		Node* getParent();
 }; 
 #endif

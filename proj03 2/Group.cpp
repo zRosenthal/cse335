@@ -12,22 +12,13 @@ vector<Node*> ObjectStructure::getNodeVector() {
 int ObjectStructure::getSize() {
 	return nodeVector.size();
 }
-Node* Group::getParent() {return parent;}
-Group::Group(string n, Node* p) {
-    parent = p;
-	groupName = n;
+
+Group::Group(string n) {
+    groupName = n;
     dataPtr = new ObjectStructure();
 }
-Group::Group(string name) {
-	groupName = name;
-	dataPtr = new ObjectStructure();
-}
 Group::~Group() {
-    vector<Node*> nvec = dataPtr->getNodeVector();
-	for(auto it = nvec.begin(); it!=nvec.end(); it++) {
-		delete *it;
-	}
-	delete dataPtr;
+    delete dataPtr;
 }
 void Group::Accept(Visitor* visitor) {
     visitor->visitGroup(this);
