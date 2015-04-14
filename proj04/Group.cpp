@@ -12,6 +12,19 @@ vector<Node*> ObjectStructure::getNodeVector() {
 int ObjectStructure::getSize() {
 	return nodeVector.size();
 }
+void ObjectStructure::remove(Node* n) {
+	string name = n->getGroupName();
+	size_t index = 0;
+	for(auto i = nodeVector.begin();i!=nodeVector.end();i++) {
+		index++;
+		string name2 = (*i)->getGroupName();
+		if(name2 == name) {
+			break;
+		}
+	}
+	index--;
+	nodeVector.erase(nodeVector.begin()+index);
+}
 Node* Group::getParent() {return parent;}
 Group::Group(string n, Node* p) {
     parent = p;
@@ -28,7 +41,10 @@ Group::~Group() {
 		delete *it;
 	}
 	delete dataPtr;
-}
+}/*
+void Group::remove(Node*) {
+	vector<node*> v = dataPtr->getNodeVe
+}*/
 void Group::Accept(Visitor* visitor) {
     visitor->visitGroup(this);
 }

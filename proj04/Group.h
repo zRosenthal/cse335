@@ -18,6 +18,7 @@ class Node {
 		virtual void AddChild(Node*) {}
 		virtual ObjectStructure* getDataPtr() {}
 		virtual string getGroupName() {}
+		virtual void remove(Node*) {}
 };
 class ObjectStructure {
     public:
@@ -28,7 +29,8 @@ class ObjectStructure {
 		vector<Node*> getNodeVector();
  		void addNode(Node*);
 		int getSize();
-    private:
+		void remove(Node*);
+	private:
         vector<Node*> nodeVector;
 };
 

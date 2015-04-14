@@ -9,9 +9,7 @@
 #include<iostream>
 using namespace std;
 void CompanyBuilder::createCompany(string name) {
-	cout << "in create" << endl;
 	root = new Group(name);
-	cout << "after new group" << endl;
 	sVisitor = new SearchVisitor();
 	pVisitor = new PrintVisitor();
 }
@@ -51,6 +49,7 @@ bool CompanyBuilder::addGroup(string n, string p) {
 
 bool CompanyBuilder::disband(string n) {
 	sVisitor->setQuery(n);
+	cout << "n: " << n << endl;
 	root->Accept(sVisitor);
 	if(sVisitor->getVecSize() == 0) {
 		cout << "Invalid Group-The Group you specified does not exist" << endl;
@@ -58,21 +57,14 @@ bool CompanyBuilder::disband(string n) {
 	}
 	Node* group = sVisitor->getFirstElement();
 	sVisitor->Reset();
-	Node* parent = group->getParent();
+	Node* parent = group->getParent();	
+	
 	vector<Node*> nodeVector = group->getDataPtr()->getNodeVector();
 	for(auto v_it = nodeVector.begin(); v_it != nodeVector.end();v_it++) {
 		parent->AddChild(*v_it);
 	}
-	string gName = group->getGroupName();
-	vector<Node*> parentNodeVector = parent->getDataPtr()->getNodeVector();
-	for(auto v_it = parentNodeVector.begin();v_it != parentNodeVector.end();v_it++) {
-		if((*v_it)->getGroupName() == gName) {
-			nodeVector.erase(v_it);
-			delete group;
-			root->Accept(pVisitor);
-			return true;
-		}
-	}
+	parent->getDataPtr()->remove(group);	
+	root->Accept(pVisitor);	
 }
 bool CompanyBuilder::rmGroup(string n) {
 	sVisitor->setQuery(n);
@@ -83,6 +75,8 @@ bool CompanyBuilder::rmGroup(string n) {
 	}
 	Node* group = sVisitor->getFirstElement();
 	sVisitor->Reset();
+	Node* parent = group->getParent();
+	parent->getDataPtr()->remove(group);
 	delete group;
 	root->Accept(pVisitor);
 	return true;

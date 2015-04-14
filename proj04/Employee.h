@@ -23,6 +23,7 @@ class Employee:public Node {
 		string getFirstName();
 		string getLastName();
 		string getJobTitle();
+		string getGroupName();
 		Node* getParent();
 };
 #endif

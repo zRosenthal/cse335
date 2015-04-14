@@ -4,6 +4,10 @@ using std::string;
 #include "PrintVisitor.h"
 #include "Employee.h"
 class Group;
+string Employee::getGroupName() {
+	string str = firstName + " " + lastName;
+	return str;
+}
 Employee::Employee(string f,string l,string t, Node* p) {
     firstName = f;
     lastName = l;

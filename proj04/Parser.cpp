@@ -4,7 +4,9 @@
 #include <sstream>
 #include<iostream>
 #include<vector>
+
 using namespace std;
+
 Parser::Parser(string fName) {
 	fileName = fName;	
 }
@@ -23,23 +25,27 @@ bool Parser::Parse(CompanyBuilder* builder) {
 		vector<string> tokenVector;
 		while(buffer.getline(token,256,',')) {
 			tokenVector.push_back(token);
-			cout << token << endl;
 		}
 		for(auto v_it = tokenVector.begin(); v_it != tokenVector.end(); v_it++) {
 				if((*v_it) == "1") {
 					if(*(++v_it) == "1") {
+						cout << endl << endl;
 						string last = *(++v_it);
 						string first = *(++v_it);
 						string job = *(++v_it);
 						string parent = *(++v_it);
-						cout << "before addEmp" << endl;
 						bobTheBuilder->addEmp(last,first,job,parent);
-						cout << "after addEmp" << endl;
 					} 
 					else {
+						cout << "wtf" << endl;
 						string name = *(++v_it);
 						string parent = *(++v_it);
+						cout << endl;
+						cout << "name: " << name << " parent " << parent << endl;
 						bobTheBuilder->addGroup(name,parent);
+						
+
+
 					}	
 				}
 				else if(*v_it == "2") { 
