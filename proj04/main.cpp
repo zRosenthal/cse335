@@ -20,6 +20,5 @@ int main(int argc, char** argv)
 	CompanyBuilder cb;
 	bool success = parser.Parse(&cb);
     Node* AppleCo= cb.getResult();
-    cout << success << endl;   
 	return 0;
 }

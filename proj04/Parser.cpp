@@ -4,6 +4,8 @@
 #include <sstream>
 #include<iostream>
 #include<vector>
+#include <time.h>  
+#include <unistd.h>
 
 using namespace std;
 
@@ -27,40 +29,71 @@ bool Parser::Parse(CompanyBuilder* builder) {
 			tokenVector.push_back(token);
 		}
 		for(auto v_it = tokenVector.begin(); v_it != tokenVector.end(); v_it++) {
+				sleep(1); 			
 				if((*v_it) == "1") {
 					if(*(++v_it) == "1") {
-						cout << endl << endl;
-						string last = *(++v_it);
-						string first = *(++v_it);
-						string job = *(++v_it);
-						string parent = *(++v_it);
-						bobTheBuilder->addEmp(last,first,job,parent);
+						if(tokenVector.size() != 6) {
+							system("clear");
+							cout << "incorrect number of arguments for"
+								 << " adding an employee" << endl;
+							size_t vSize = tokenVector.size();
+							v_it += vSize - 2;
+						}
+						else {
+							string last = *(++v_it);
+							string first = *(++v_it);
+							string job = *(++v_it);
+							string parent = *(++v_it);
+							bobTheBuilder->addEmp(last,first,job,parent);
+						}
 					} 
 					else {
-						cout << "wtf" << endl;
+						if(tokenVector.size() != 4) {
+							system("clear");
+							cout << "incorrect number of arguments for"
+								 << " adding a group" << endl;
+							size_t vSize = tokenVector.size();
+							v_it += vSize - 2;	
+						}
+						else {
 						string name = *(++v_it);
 						string parent = *(++v_it);
 						cout << endl;
-						cout << "name: " << name << " parent " << parent << endl;
 						bobTheBuilder->addGroup(name,parent);
-						
-
-
+						}
 					}	
 				}
-				else if(*v_it == "2") { 
-					string name = *(++v_it);
-					bobTheBuilder->rmGroup(name);
+				else if(*v_it == "2") {
+					if(tokenVector.size() != 2) {
+						cout << "incorrect number of arguments for" 
+							 << "removing a group" << endl;
+						size_t vSize = tokenVector.size();
+						v_it += vSize - 1;
+					}
+					else {
+						string name = *(++v_it);
+						bobTheBuilder->rmGroup(name);
+					}
 				}
 				else if(*v_it == "3") {
-					string name = *(++v_it);
-					bobTheBuilder->disband(name);
+					if(tokenVector.size() != 2) {
+						cout << "incorrect number of arguments for "
+							 << "removing a group" << endl;
+						size_t vSize = tokenVector.size();
+						v_it += vSize - 1;
+					}
+					else {	
+						string name = *(++v_it);
+						bobTheBuilder->disband(name);
+					}
 				}
 				else {
-					cout << "ERROR OOOHH NO";
+					cout << "ERROR UNKNOWN INPUT: " << (*v_it) << endl;
 				}
 		}
 	}
+	bobsFile.close();
+	bobTheBuilder->printCompany();
 	return true;
 }
 

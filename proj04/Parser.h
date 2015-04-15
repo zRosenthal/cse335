@@ -8,6 +8,8 @@ class Parser {
 	public:
 		Parser(string);
 		~Parser()=default;
+		Parser(const Parser&)=default;
+		Parser& operator=(const Parser&)=default;
 		bool Parse(CompanyBuilder*);
 	private:
 		CompanyBuilder* bobTheBuilder;

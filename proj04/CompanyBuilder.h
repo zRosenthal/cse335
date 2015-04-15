@@ -10,6 +10,7 @@ class Builder {
 	public:
 		Builder()=default;
 		virtual ~Builder() {};
+		virtual void printCompany()=0;
 		virtual bool addEmp(string,string,string,string)=0;
 		virtual	bool addGroup(string,string)=0;
 		virtual	bool rmGroup(string)=0;
@@ -26,6 +27,9 @@ class CompanyBuilder:public Builder {
 	public:
 		CompanyBuilder()=default;
 		~CompanyBuilder();
+		CompanyBuilder(const CompanyBuilder&)=default; 
+		CompanyBuilder& operator=(const CompanyBuilder&)=default;
+		void printCompany();
 		bool addEmp(string,string,string,string);
 		bool addGroup(string,string);
 		bool rmGroup(string);
